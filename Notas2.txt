@@ -1,0 +1,13 @@
+  //1.- Controlador[0]. Busca en la carpeta controladores, si el archivo/controlador existe.
+      if(file_exists('../app/controladores/' . ucwords($url[0]).'.php')){ //Si existe el controlador...
+        $this->controladorActual = ucwords($url[0]);  //Se setea como controlador por defecto la URL
+
+        echo 'Sí existe el controlador ' . $this->controladorActual;  //Punto de prueba. Se identifica el controlador.
+
+        //Se elimina la variable del índice 0 (el controlador)
+        unset($url[0]);
+      }
+
+      //Requerir el controlador [0], escrito en el navegador
+      require_once '../app/controladores/' . $this->controladorActual . '.php';
+      $this->controladorActual = new $this->controladorActual;

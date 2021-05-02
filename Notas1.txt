@@ -1,0 +1,76 @@
+       */
+      //Requerir el controlador escrito en el navegador
+      require_once '../app/controladores/' . $this->controladorActual . '.php';
+      $this->controladorActual = new $this->controladorActual;
+
+      //Verificar el segundo dato de la URL, si se escribió el método.
+      if(isset($url[1])){ 
+        if(method_exists($this->controladorActual,$url[1])){ //Si existe el método...
+          $this->metodoActual = $url[1];  //Actualiza el método
+
+          //Se restablece el método
+          unset($url[1]);
+
+        }
+
+        //Obtener los parámetros
+        //$this->parametros = $url ? array_values($url) : [];
+
+        //LLamar callback con parámetros tipo arreglo
+        //call_user_func_array([$this->controladorActual, $this->metodoActual], $this->parametros);
+
+      }
+
+      echo $this->metodoActual; //Punto de control (método)
+    }   
+    
+    //Método: obtener la URL
+    public function getUrl(){
+      echo $_GET['url'];  //Imprime la URL- Punto de control
+         }
+  }
+
+
+//Verificar si hay URL
+      if (isset($_GET['url'])){ //Si hay URL...
+        $url = rtrim($_GET['url'],'/');
+        $url = filter_var($url,FILTER_SANITIZE_URL);
+        $url = explode('/',$url);
+        return $url;
+      }
+      
+
+public function __construct(){
+      //print_r($this->getUrl()); //Punto de prueba. Ejecuta el método etURL, e imprime el resultado
+      $url = $this->getUrl(); //Ejecuta el método getURL y guarda en la variable $url, la URL indexada.
+
+      //print_r($url); //Punto de prueba. Imprime el valor de la URL en modo arreglo.
+      
+      //echo $this->controladorActual;  //Punto de prueba. Se identifica el controlador.
+
+      //1.- Controlador[0]. Busca en la carpeta controladores, si el archivo/controlador existe. 
+      if(file_exists('../app/controladores/' . ucwords($url[0]) . '.php')){   //Si existe el controlador, se setea como controlador por defecto
+        $this->controladorActual = ucwords($url[0]);
+
+        echo $this->controladorActual;  //Punto de prueba. Se identifica el controlador.
+
+        //Se elimina la variable del índice 0 (el controlador)
+        unset($url[0]);
+      }
+      
+        //Requerir el controlador [0], escrito en el navegador
+        require_once '../app/controladores/' . $this->controladorActual . '.php';
+        $this->controladorActual = new $this->controladorActual;
+  
+    }
+
+      //Verificar si hay URL
+      if (isset($_GET['url'])){ //Si se escribe algo en el navegador
+        $url = rtrim($_GET['url'],'/'); //Elimina espacios en blanco a la derecha
+        $url = filter_var($url,FILTER_SANITIZE_URL);  //Elimina caracteres ilegales de la URL
+        $url = explode('/',$url); //Divide la variable $url en un arreglo.
+        //print_r($url); //Punto de prueba. Imprime el valor de la URL en modo arreglo.
+      
+        return $url;  //Devuelve el valor de la $url en forma de arreglo
+      }      
+    }
