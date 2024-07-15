@@ -1,13 +1,15 @@
 <?php
 
-  //Clase Controlador,: carga los modelos y las vistas.
-  //Es una extensión del controlado 'Paginas' con 'extends'
+  //Clase: Controlador. Se instancia simultáneamente con el controlador 'Paginas'; carga los modelos y las vistas.
+  //Es una extensión del controlador 'Paginas' con 'extends'
   class Controlador{
 
-    //Método: modelo (carga el modelo enviado desde el contructor del controlador 'Paginas')
+    //Método: modelo. Carga el modelo enviado desde el método constructor del controlador 'Paginas' (Paginas.php)
     public function modelo($modelo){
+
       require_once '../app/modelos/' . $modelo . '.php';
-      return new $modelo(); //Regresa una instancia de $modelo
+      return new $modelo(); //Regresa una instancia de $modelo (Usuario)
+
     }
 
     //Método: vista (cargar la vista)

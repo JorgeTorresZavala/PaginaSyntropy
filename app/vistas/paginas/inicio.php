@@ -15,7 +15,7 @@
     </tr>
   </thead>
 	
-	<!-- Datos de la tabla -->
+	<!-- Datos de la tabla --> 
 	<tbody>
 		<?php foreach($datos['usuarios'] as $becario) : ?>	<!-- recorre los datos -->
 			<tr>
@@ -25,8 +25,8 @@
 				<td><?php echo $becario->apellido2; ?></td>
 				<td><?php echo $becario->correo; ?></td>
 				<td><?php echo $becario->celular; ?></td>
-				<td><a href="<?php echo RUTA_URL; ?>paginas/editar/ <?php echo $becario->id_becario; ?>">Editar</a></td>
-				<td><a href="<?php echo RUTA_URL; ?>paginas/borrar/ <?php echo $becario->id_becario; ?>">Borrar</a></td>
+				<td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $becario->id_becario; ?>">Editar</a></td>
+				<td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $becario->id_becario; ?>">Borrar</a></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>

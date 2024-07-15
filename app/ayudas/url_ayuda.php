@@ -1,9 +1,9 @@
 <?php
   
-  //Función para redireccionar a la '$pagina'...'paginas' viene como parámetro del método agregarUsuario de paginas/agregar
+  //Función para redireccionar a las páginas solicitadas...'$pagina' viene como parámetro.
   function redireccionar($pagina){
     
-    header ('localhost' . RUTA_URL . $pagina);  //Envía un encabezado HTTP (URL) sin formato para redirigir a la $página
+    header ('location: ' . RUTA_URL . $pagina);  //Envía un encabezado HTTP (URL) sin formato para redirigir a la página solicitada en $pagina
     
   }
 
