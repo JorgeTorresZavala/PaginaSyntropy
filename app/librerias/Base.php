@@ -14,7 +14,7 @@
     private $stmt;  //statement
     private $error; 
 
-    //Método constructor:
+    //Método: constructor
     public function __construct(){
       //Configurar conexion $dsn (data source name)
       $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->nombreBase;
@@ -27,12 +27,22 @@
       try{
         $this->dbh = new PDO($dsn, $this->usuario, $this->password, $opciones);
         $this->dbh->exec('set names utf8');   //Acepta caracteres especiales en español
+        //echo 'Conexión OK.';  //Punto de prueba...conexión a la BDD
 
         //Captura de errores.
       } catch (PDOException $e){
-        $this->error = $e->getMessage();
-        echo $this->error;  //Punto de prueba...muestra el tipo de error
+
+        die('Error: ' . $e->getMessage());
+
+        //$this->error = $e->getMessage();
+        //echo $this->error;  //Punto de prueba...muestra el tipo de error
+        
+        //Libera la BDD de la memoria
+      } finally{
+
+        $db = null;
       }
+
     }
 
     //Preparamos la consulta.

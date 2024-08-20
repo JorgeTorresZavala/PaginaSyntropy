@@ -49,7 +49,7 @@
 
         if($this->usrModelo->agregarUsuario($datos)){   //Si se recibe 'true' desde el método agregarUsuario, en el modelo 'Usuario'
 
-          redireccionar('/paginas');      //Se carga la vista/formulario agregar (formulario agregar.php)
+          redireccionar('/paginas');      //Se carga la vista/formulario agregar (formulario: agregar.php)
 
           }else{
 

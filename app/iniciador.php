@@ -5,7 +5,7 @@
 
   require_once 'ayudas/url_ayuda.php';   //Redirección de la página
   
-  //spl significa: Standard PHP Library.
+  //SPL significa: Standard PHP Library.
   //Registra la función 'anónima' $nombreClase dada como implementación de __autoload()
   //Carga las CLASES desde otro archivo sólo cuando sea necesario.
   //Autoload PHP, carga TODAS las CLASES de la carpeta 'librerias'...Core, Controlador y Base

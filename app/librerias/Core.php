@@ -26,11 +26,11 @@
     public function __construct(){
       $url = $this->getURL();   //Ejecuta el método getURL. Devuelve el valor de la $url en forma de arreglo.
      
-      if (isset($url[0])) {
+      //1.- Controlador[0].
+      if (isset($url[0])) { //¿Se escribió (controlador) en la URL ?...Busca en la carpeta controladores
 
-        //1.- Controlador[0]. Busca en la carpeta controladores, si el archivo/controlador existe. 
-        if(file_exists('../app/controladores/' . ucwords($url[0]) . '.php')){   //Si existe el controlador...
-          $this->controladorActual = ucwords($url[0]);    //Se setea como controlador por defecto
+        if(file_exists('../app/controladores/' . ucwords($url[0]) . '.php')){   //¿Existe el controlador?...
+          $this->controladorActual = ucwords($url[0]);    //Se setea como controlador, el dato recibido en la URL
 
           //Se elimina la variable del índice 0 (el controlador paginas)
           unset($url[0]);

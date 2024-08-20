@@ -1,8 +1,14 @@
 
-  <script type="text/javascript" src="<?php echo RUTA_URL; ?>/js/main.js"></script>
-  
-<!-- Footer -->
-    <h1>Ésto está en el pie de página</h1>
+    <!-- MDB -->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> 
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 
   </body>
 
